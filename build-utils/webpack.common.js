@@ -3,15 +3,13 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
+// const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
 const webpack = require('webpack')
 
 
 
 module.exports = {
-  mode: 'production',
-  devtool: 'source-map',
-  entry: path.resolve(__dirname, './src/index.js'),
+  entry: path.resolve(__dirname, '..', './src/index.js'),
   module: {
     rules: [
       {
@@ -41,9 +39,9 @@ module.exports = {
   resolve: {
     extensions: ['*', '.js', '.jsx','.json', '.png']
   },
-  entry: path.resolve(__dirname, './src/index.js'),
+  entry: path.resolve(__dirname, '..', './src/index.js'),
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, '..', './dist'),
     filename: '[name].[contenthash].js',
   },
   optimization: {
@@ -56,7 +54,7 @@ module.exports = {
   },
   plugins: [new webpack.ProvidePlugin({
     React: "react"
-  }), new webpack.HotModuleReplacementPlugin(),new ESLintPlugin(), new HTMLWebpackPlugin({
+  }),new ESLintPlugin(), new HTMLWebpackPlugin({
     template: "./src/index.html"
   }),
   new CleanWebpackPlugin(), new MiniCssExtractPlugin({
@@ -64,5 +62,6 @@ module.exports = {
     filename: "[name].css",
     chunkFilename: "[id].css",
   }),
-  new BundleAnalyzerPlugin(),],
+//   new BundleAnalyzerPlugin(),
+],
 };
