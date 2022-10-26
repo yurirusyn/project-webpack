@@ -4,7 +4,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
-
+const webpack = require('webpack')
 
 
 
@@ -53,10 +53,8 @@ module.exports = {
   },
   devServer: {
     port: 5500,
-    hot: false,
-    liveReload: true,
   },
-  plugins: [new ESLintPlugin(), new HTMLWebpackPlugin({
+  plugins: [new webpack.HotModuleReplacementPlugin(),new ESLintPlugin(), new HTMLWebpackPlugin({
     template: "./src/index.html"
   }),
   new CleanWebpackPlugin(), new MiniCssExtractPlugin({
