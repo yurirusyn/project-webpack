@@ -54,7 +54,9 @@ module.exports = {
   devServer: {
     port: 5500,
   },
-  plugins: [new webpack.HotModuleReplacementPlugin(),new ESLintPlugin(), new HTMLWebpackPlugin({
+  plugins: [new webpack.ProvidePlugin({
+    React: "react"
+  }), new webpack.HotModuleReplacementPlugin(),new ESLintPlugin(), new HTMLWebpackPlugin({
     template: "./src/index.html"
   }),
   new CleanWebpackPlugin(), new MiniCssExtractPlugin({
