@@ -40,6 +40,7 @@
     "dev": "webpack --mode development",
     "start": "webpack serve --config build-utils/webpack.config.js --env env=dev --open",
     "build": "webpack --config build-utils/webpack.config.js --env env=prod",
+    "build:analyze": "npm run build -- --env addon=bundleanalyze",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --mode development --watch",
     "serve": "./node_modules/.bin/webpack"
