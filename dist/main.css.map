@@ -1,1 +1,0 @@
-{"version":3,"file":"main.css","mappings":"EAAE;IACE,oBAAa;IAAb,oBAAa;IAAb,aAAa;IACb,sBAAsB;IACtB,kBAAkB;EACpB,C","sources":["webpack:///./src/styles/style.css"],"sourcesContent":["  body {\n    display: flex;\n    flex-direction: column;\n    background: violet;\n  }"],"names":[],"sourceRoot":""}

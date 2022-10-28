@@ -7,7 +7,7 @@ import App from "./App";
 
 // console.log("count:", s);
 
-const title = "React with Webpack and Babel43434";
+const title = "React with Webpack and Babel";
 
 // eslint-disable-next-line no-undef
 const container = document.getElementById("app");
