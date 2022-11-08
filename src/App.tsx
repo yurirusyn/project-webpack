@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./components/Header/Header.tsx";
 import {GlobalStyle} from "./Stayle.ts"
 import {Routes, Route} from "react-router-dom"
-import Products from "./components/Products/Products.tsx";
+import Products from "./components/Products/Products.jsx";
 import About from "./components/About/About.tsx";
 
 
