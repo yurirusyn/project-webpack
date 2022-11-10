@@ -1,2 +1,2 @@
-// eslint-disable-next-line import/prefer-default-export
 export const pages = ["Home", "Products", "About"];
+export const settings = ["Profile", "Account", "Dashboard", "Logout"];
