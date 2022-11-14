@@ -5,14 +5,17 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
+// import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
+import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import {Link} from 'react-router-dom'
-import {PAGES,SETTINGS} from "../../common/constants";
+// import AdbIcon from '@mui/icons-material/Adb';
+import {Link, useLocation} from 'react-router-dom'
+import { pages } from "../../common/constants";
 
-
+const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 
 function Header(): React.ReactElement {
@@ -38,6 +41,7 @@ function Header(): React.ReactElement {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+          {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
           <Typography
             variant="h6"
             noWrap
@@ -65,6 +69,7 @@ function Header(): React.ReactElement {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
+              {/* <MenuIcon /> */}
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -84,7 +89,7 @@ function Header(): React.ReactElement {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {PAGES.map((page) => (
+              {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center"><Link data-testid="page-element" style={{textDecoration: 'none',color: 'white',}}
                    to={`/${page}`}>{page}</Link></Typography>
@@ -92,6 +97,7 @@ function Header(): React.ReactElement {
               ))}
             </Menu>
           </Box>
+          {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
           <Typography
             variant="h5"
             noWrap
@@ -111,7 +117,7 @@ function Header(): React.ReactElement {
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {PAGES.map((page) => (
+            {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
@@ -126,8 +132,9 @@ function Header(): React.ReactElement {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open SETTINGS">
+            <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}
               </IconButton>
             </Tooltip>
             <Menu
@@ -146,7 +153,7 @@ function Header(): React.ReactElement {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {SETTINGS.map((setting) => (
+              {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
