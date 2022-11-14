@@ -1,6 +1,11 @@
-import { createSlice, PayloadAction, createAsyncThunk, AnyAction } from '@reduxjs/toolkit';
+import {
+  createSlice,
+  PayloadAction,
+  createAsyncThunk,
+  AnyAction,
+} from "@reduxjs/toolkit";
 
-type Product = {
+export type TProduct = {
   id: number;
   title: string;
   description: string;
@@ -12,37 +17,43 @@ type Product = {
   category: string;
   thumbnail: string;
   images: string[];
-}
+};
 
-type ProductsState = {
-  list: Product[];
+type TRootState = {
+  list: TProduct[];
   loading: boolean;
   error: string | null;
-}
-export const fetchProducts = createAsyncThunk<Product[], undefined, {rejectValue: string}>(
-    'products/fetchProducts',
-    async function (_, { rejectWithValue }) {
-      const response = await fetch('https://62160e807428a1d2a3598008.mockapi.io/bicicle');
+};
 
-      if (!response.ok) {
-        return rejectWithValue('Server Error!');
-      }
+export const fetchProducts = createAsyncThunk<
+  TProduct[],
+  undefined,
+  { rejectValue: string }
+>("products/fetchProducts", async (_, { rejectWithValue }) => {
+  try {
+    const response = await fetch(
+      "https://62160e807428a1d2a3598008.mockapi.io/bicicle"
+    );
 
-      const data = await response.json();
+    const data = await response.json();
 
-      return data;
-    }
-);
+    return data;
+  } catch (error) {
+    return rejectWithValue("Server Error!");
+  }
+});
 
-
-const initialState: ProductsState = {
+const initialState: TRootState = {
   list: [],
   loading: false,
   error: null,
-}
+};
 
-const todoSlice = createSlice({
-  name: 'todos',
+function isError(action: AnyAction) {
+  return action.type.endsWith("rejected");
+}
+const productSlice = createSlice({
+  name: "todos",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -59,12 +70,7 @@ const todoSlice = createSlice({
         state.error = action.payload;
         state.loading = false;
       });
-  }
+  },
 });
 
-
-export default todoSlice.reducer;
-
-function isError(action: AnyAction) {
-  return action.type.endsWith('rejected');
-}
+export default productSlice.reducer;

@@ -9,8 +9,10 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { Link } from 'react-router-dom'
-import { pages, settings } from "../../common/constants";
+import {Link} from 'react-router-dom'
+import {PAGES,SETTINGS} from "../../common/constants";
+
+
 
 
 function Header(): React.ReactElement {
@@ -82,7 +84,7 @@ function Header(): React.ReactElement {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
+              {PAGES.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center"><Link data-testid="page-element" style={{textDecoration: 'none',color: 'white',}}
                    to={`/${page}`}>{page}</Link></Typography>
@@ -109,7 +111,7 @@ function Header(): React.ReactElement {
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+            {PAGES.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
@@ -124,7 +126,7 @@ function Header(): React.ReactElement {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+            <Tooltip title="Open SETTINGS">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
               </IconButton>
             </Tooltip>
@@ -144,7 +146,7 @@ function Header(): React.ReactElement {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
+              {SETTINGS.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
