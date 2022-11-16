@@ -6,7 +6,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Unstable_Grid2";
-import { TProduct } from "../../store/productSlice.ts";
+import { TProduct } from "../../store/productSlice";
 
 interface IProductCartProps {
   products: TProduct[];

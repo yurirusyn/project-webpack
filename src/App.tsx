@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import { GlobalStyle } from "./Style";
-import Products from "./components/ProductCart/ProductCart.jsx";
 import About from "./components/About/About";
 import { fetchProducts } from "./store/productSlice";
 import { useAppDispatch, useAppSelector } from "./hooks/redux";

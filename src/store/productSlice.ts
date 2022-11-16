@@ -4,6 +4,7 @@ import {
   createAsyncThunk,
   AnyAction,
 } from "@reduxjs/toolkit";
+import ProductsService from "../services/index";
 
 export type TProduct = {
   id: number;
@@ -31,13 +32,9 @@ export const fetchProducts = createAsyncThunk<
   { rejectValue: string }
 >("products/fetchProducts", async (_, { rejectWithValue }) => {
   try {
-    const response = await fetch(
-      "https://62160e807428a1d2a3598008.mockapi.io/bicicle"
-    );
+    const response = await ProductsService.fetchProducts();
 
-    const data = await response.json();
-
-    return data;
+    return response.data;
   } catch (error) {
     return rejectWithValue("Server Error!");
   }
@@ -53,7 +50,7 @@ function isError(action: AnyAction) {
   return action.type.endsWith("rejected");
 }
 const productSlice = createSlice({
-  name: "todos",
+  name: "products",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -61,14 +58,19 @@ const productSlice = createSlice({
       .addCase(fetchProducts.pending, (state) => {
         state.loading = true;
         state.error = null;
+        state.list = [];
       })
-      .addCase(fetchProducts.fulfilled, (state, action) => {
-        state.list = action.payload;
-        state.loading = false;
-      })
+      .addCase(
+        fetchProducts.fulfilled,
+        (state, action: PayloadAction<TProduct[]>) => {
+          state.list = action.payload;
+          state.loading = false;
+        }
+      )
       .addMatcher(isError, (state, action: PayloadAction<string>) => {
         state.error = action.payload;
         state.loading = false;
+        state.list = [];
       });
   },
 });

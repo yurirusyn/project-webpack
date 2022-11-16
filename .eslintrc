@@ -7,9 +7,18 @@
     "jest": true
   },
   "extends": ["airbnb", "prettier"],
-  "plugins": ["prettier", "eslint-plugin-import"],
+  "plugins": ["prettier", "eslint-plugin-import", "import"],
   "rules": {
-    
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+   ],
     "no-unused-vars":"warn",
     "prettier/prettier": ["error"],
     "import/no-extraneous-dependencies": 0,
