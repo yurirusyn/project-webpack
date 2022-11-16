@@ -4,7 +4,7 @@ import {
   createAsyncThunk,
   AnyAction,
 } from "@reduxjs/toolkit";
-import ProductsService from "../services/index";
+import ProductsService from "../services/index.ts";
 
 export type TProduct = {
   id: number;
