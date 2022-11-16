@@ -36,7 +36,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ["*", ".js", ".jsx", ".json", ".png", "ts", "tsx"],
+    extensions: [".js", ".jsx", ".ts", ".tsx"],
   },
   // entry: path.resolve(__dirname, '..', './src/index.jsx'),
   output: {
@@ -65,6 +65,5 @@ module.exports = {
       filename: "[name].css",
       chunkFilename: "[id].css",
     }),
-    //   new BundleAnalyzerPlugin(),
   ],
 };

@@ -1,6 +1,4 @@
-import styled from 'styled-components';
-import {createGlobalStyle } from 'styled-components'
-
+import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -15,8 +13,8 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const Container = styled.div`
-    width: 1200px;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin: 0 auto;
-    `;
+  width: 1200px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+`;
