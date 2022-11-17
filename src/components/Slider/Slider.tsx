@@ -13,7 +13,7 @@ import { SLIDER_IMAGES } from "../../common/constants";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
-function SwipeableTextMobileStepper() {
+function Slider() {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = SLIDER_IMAGES.length;
@@ -95,4 +95,4 @@ function SwipeableTextMobileStepper() {
   );
 }
 
-export default SwipeableTextMobileStepper;
+export default Slider;
