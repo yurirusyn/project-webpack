@@ -14,6 +14,12 @@ const renderComponent = async () => {
 };
 
 describe("Slider component", () => {
+  it("Should render slider component", async () => {
+    const { getAllByTestId } = await renderComponent();
+    const sliderStep = getAllByTestId("swiper-element");
+    expect(sliderStep.length).toBe(1);
+  });
+
   it("Should render slider image properly", async () => {
     const { getByRole } = await renderComponent();
     const sliderImg = getByRole("img");
@@ -21,8 +27,8 @@ describe("Slider component", () => {
   });
 
   it("Should render all slider steps", async () => {
-    const { container } = await renderComponent();
-    const sliderStep = container.getElementsByClassName("MuiMobileStepper-dot");
+    const { getAllByRole } = await renderComponent();
+    const sliderStep = getAllByRole("button");
     expect(sliderStep.length).toBe(SLIDER_IMAGES.length);
   });
 });

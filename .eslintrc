@@ -7,23 +7,14 @@
     "jest": true
   },
   "extends": ["airbnb", "prettier"],
-  "plugins": ["prettier", "eslint-plugin-import", "import"],
-  "rules": {
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "js": "never",
-        "jsx": "never",
-        "ts": "never",
-        "tsx": "never"
-      }
-   ],
+  "plugins": ["prettier", "eslint-plugin-import"],
     "no-unused-vars":"warn",
     "prettier/prettier": ["error"],
     "import/no-extraneous-dependencies": 0,
     "react/jsx-filename-extension": 0,
     "no-param-reassign": 0,
-    "@typescript-eslint/ban-ts-comment": "off"
-  }
+    "@typescript-eslint/ban-ts-comment": "off",
+    "no-return-assign":"off",
+    "import/no-unresolved": "off"
+  
 }
