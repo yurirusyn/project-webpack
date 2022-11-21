@@ -5,6 +5,7 @@ import ProductCart from "../ProductCart/ProductCart";
 
 function ProductsPage() {
   const products = useAppSelector((state) => state.product.list);
+  
   return (
     <Container maxWidth="xl">
       <ProductCart products={products} />
