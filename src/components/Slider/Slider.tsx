@@ -18,8 +18,7 @@ export const Slider: React.FC = () => {
             sx={ImgStyle}
             src={step.imgPath ? step.imgPath : DEFAULT_IMAGES}
             alt={step.label}
-            onError={onImageError}
-          />
+            onError={onImageError} />
         ))}
       </Carousel>
     </Box>

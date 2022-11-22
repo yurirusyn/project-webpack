@@ -36,7 +36,9 @@ function Header(): React.ReactElement {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar elevation={0} sx={{
+      background: "white",
+    }} position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -47,11 +49,14 @@ function Header(): React.ReactElement {
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
+              fontFamily: "Roboto",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "#fff",
               textDecoration: "none",
+              background: "#FFC107",
+              borderRadius: 1,
+              padding: 0.8,
             }}
           >
             WEBSHOP
@@ -89,7 +94,7 @@ function Header(): React.ReactElement {
                   <Typography textAlign="center">
                     <Link
                       data-testid="page-element"
-                      style={{ textDecoration: "none", color: "white" }}
+                      style={{ textDecoration: "none", color: "rgba(0, 0, 0, 0.87)" }}
                       to={`/${page}`}
                     >
                       {page}
@@ -126,7 +131,7 @@ function Header(): React.ReactElement {
               >
                 <Link
                   data-testid="page-element-mobile"
-                  style={{ textDecoration: "none", color: "white" }}
+                  style={{ textDecoration: "none", color: "rgba(0, 0, 0, 0.87)" }}
                   to={`/${page}`}
                 >
                   {page}
